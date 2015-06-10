@@ -1,0 +1,18 @@
+{
+    "contents" : "complete <- function(directory, id = 1:332) {\n  ## 'directory' is a character vector of length 1 indicating\n  ## the location of the CSV files\n  \n  ## 'id' is an integer vector indicating the monitor ID numbers\n  ## to be used\n  \n  ## Return a data frame of the form:\n  ## id nobs\n  ## 1  117\n  ## 2  1041\n  ## ...\n  ## where 'id' is the monitor ID number and 'nobs' is the\n  ## number of complete cases\n  \n  nob <- numeric(0)\n  for(i in id){\n    csv <- read.csv(paste(directory,\"/\",sprintf(\"%03d\",i),\".csv\", sep=\"\"))\n    nob <- c(nob,sum( !(is.na(csv$sulfate)) & !(is.na(csv$nitrate)) )\n)  }\n  data.frame(id=id,nobs=nob)\n}",
+    "created" : 1433970264898.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "955042509",
+    "id" : "585D6100",
+    "lastKnownWriteTime" : 1433973189,
+    "path" : "~/Air_Pollution/complete.r",
+    "project_path" : "complete.r",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
